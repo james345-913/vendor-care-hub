@@ -8,13 +8,13 @@ import heroImg from "@/assets/market-hero.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Soko Umoja — Vendors Association & Complaints" },
+      { title: "Market Guard — Vendors Association & Complaints" },
       {
         name: "description",
         content:
           "Register as a member, report problems at your market, and follow association meetings — all in one place.",
       },
-      { property: "og:title", content: "Soko Umoja — Vendors Association" },
+      { property: "og:title", content: "Market Guard — Vendors Association" },
       {
         property: "og:description",
         content: "One voice for market and street traders: membership, complaints and meetings.",
@@ -71,9 +71,9 @@ function Landing() {
         <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
           <Link to="/" className="flex items-center gap-2 text-primary-foreground">
             <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-warm font-display text-lg font-extrabold text-accent-foreground">
-              SU
+              MG
             </span>
-            <span className="font-display text-xl font-bold">Soko Umoja</span>
+            <span className="font-display text-xl font-bold">Market Guard</span>
           </Link>
           {signedIn ? (
             <Button asChild variant="glass">
@@ -129,7 +129,7 @@ function Landing() {
       </section>
 
       <footer className="border-t py-8 text-center text-sm text-muted-foreground">
-        Soko Umoja Vendors Association
+        Market Guard Vendors Association
       </footer>
     </div>
   );
