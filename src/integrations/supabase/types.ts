@@ -14,16 +14,232 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      announcements: {
+        Row: {
+          body: string
+          created_at: string
+          created_by: string | null
+          id: string
+          kind: Database["public"]["Enums"]["announcement_kind"]
+          meeting_at: string | null
+          title: string
+          venue: string
+        }
+        Insert: {
+          body: string
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          kind?: Database["public"]["Enums"]["announcement_kind"]
+          meeting_at?: string | null
+          title: string
+          venue?: string
+        }
+        Update: {
+          body?: string
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          kind?: Database["public"]["Enums"]["announcement_kind"]
+          meeting_at?: string | null
+          title?: string
+          venue?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "announcements_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      complaint_updates: {
+        Row: {
+          author_id: string
+          complaint_id: string
+          created_at: string
+          id: string
+          message: string
+          new_status: Database["public"]["Enums"]["complaint_status"] | null
+        }
+        Insert: {
+          author_id: string
+          complaint_id: string
+          created_at?: string
+          id?: string
+          message: string
+          new_status?: Database["public"]["Enums"]["complaint_status"] | null
+        }
+        Update: {
+          author_id?: string
+          complaint_id?: string
+          created_at?: string
+          id?: string
+          message?: string
+          new_status?: Database["public"]["Enums"]["complaint_status"] | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "complaint_updates_author_id_fkey"
+            columns: ["author_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "complaint_updates_complaint_id_fkey"
+            columns: ["complaint_id"]
+            isOneToOne: false
+            referencedRelation: "complaints"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      complaints: {
+        Row: {
+          category: Database["public"]["Enums"]["complaint_category"]
+          created_at: string
+          description: string
+          id: string
+          location: string
+          priority: Database["public"]["Enums"]["complaint_priority"]
+          reference_no: string
+          status: Database["public"]["Enums"]["complaint_status"]
+          title: string
+          updated_at: string
+          vendor_id: string
+        }
+        Insert: {
+          category?: Database["public"]["Enums"]["complaint_category"]
+          created_at?: string
+          description: string
+          id?: string
+          location?: string
+          priority?: Database["public"]["Enums"]["complaint_priority"]
+          reference_no?: string
+          status?: Database["public"]["Enums"]["complaint_status"]
+          title: string
+          updated_at?: string
+          vendor_id: string
+        }
+        Update: {
+          category?: Database["public"]["Enums"]["complaint_category"]
+          created_at?: string
+          description?: string
+          id?: string
+          location?: string
+          priority?: Database["public"]["Enums"]["complaint_priority"]
+          reference_no?: string
+          status?: Database["public"]["Enums"]["complaint_status"]
+          title?: string
+          updated_at?: string
+          vendor_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "complaints_vendor_id_fkey"
+            columns: ["vendor_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          business_name: string
+          created_at: string
+          email: string | null
+          full_name: string
+          goods_category: string
+          id: string
+          market_location: string
+          membership_number: string
+          membership_status: Database["public"]["Enums"]["membership_status"]
+          national_id: string
+          phone: string
+          stall_number: string
+          updated_at: string
+        }
+        Insert: {
+          business_name?: string
+          created_at?: string
+          email?: string | null
+          full_name?: string
+          goods_category?: string
+          id: string
+          market_location?: string
+          membership_number?: string
+          membership_status?: Database["public"]["Enums"]["membership_status"]
+          national_id?: string
+          phone?: string
+          stall_number?: string
+          updated_at?: string
+        }
+        Update: {
+          business_name?: string
+          created_at?: string
+          email?: string | null
+          full_name?: string
+          goods_category?: string
+          id?: string
+          market_location?: string
+          membership_number?: string
+          membership_status?: Database["public"]["Enums"]["membership_status"]
+          national_id?: string
+          phone?: string
+          stall_number?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      announcement_kind: "notice" | "meeting"
+      app_role: "admin" | "vendor"
+      complaint_category:
+        | "harassment"
+        | "fees_levies"
+        | "stall_allocation"
+        | "sanitation"
+        | "security"
+        | "infrastructure"
+        | "other"
+      complaint_priority: "low" | "normal" | "high"
+      complaint_status: "open" | "in_review" | "resolved" | "closed"
+      membership_status: "pending" | "active" | "suspended"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +366,21 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      announcement_kind: ["notice", "meeting"],
+      app_role: ["admin", "vendor"],
+      complaint_category: [
+        "harassment",
+        "fees_levies",
+        "stall_allocation",
+        "sanitation",
+        "security",
+        "infrastructure",
+        "other",
+      ],
+      complaint_priority: ["low", "normal", "high"],
+      complaint_status: ["open", "in_review", "resolved", "closed"],
+      membership_status: ["pending", "active", "suspended"],
+    },
   },
 } as const
