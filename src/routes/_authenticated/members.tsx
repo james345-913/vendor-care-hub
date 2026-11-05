@@ -47,7 +47,7 @@ function MembersPage() {
 
   async function setStatus(id: string, status: MembershipStatus) {
     const { error } = await supabase.from("profiles").update({ membership_status: status }).eq("id", id);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     toast.success(`Member ${status === "active" ? "approved" : status}`);
     qc.invalidateQueries({ queryKey: ["members"] });
     qc.invalidateQueries({ queryKey: ["me"] });

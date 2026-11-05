@@ -50,8 +50,8 @@ function ComplaintDetail() {
   async function onReply(e: FormEvent) {
     e.preventDefault();
     const text = message.trim();
-    if (!text) return toast.error("Write a message first");
-    if (text.length > 2000) return toast.error("Message is too long");
+    if (!text) { toast.error("Write a message first"); return; }
+    if (text.length > 2000) { toast.error("Message is too long"); return; }
     setBusy(true);
     const { error } = await supabase.from("complaint_updates").insert({
       complaint_id: c.id,
@@ -60,7 +60,7 @@ function ComplaintDetail() {
       new_status: me.isAdmin && newStatus !== "keep" ? newStatus : null,
     });
     setBusy(false);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     setMessage("");
     setNewStatus("keep");
     toast.success("Update posted");

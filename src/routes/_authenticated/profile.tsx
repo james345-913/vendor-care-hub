@@ -44,14 +44,14 @@ function ProfilePage() {
   async function onSave(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const parsed = schema.safeParse(Object.fromEntries(new FormData(e.currentTarget).entries()));
-    if (!parsed.success) return toast.error(parsed.error.issues[0]?.message);
+    if (!parsed.success) { toast.error(parsed.error.issues[0]?.message); return; }
     setBusy(true);
     const { error } = await supabase
       .from("profiles")
       .update({ ...parsed.data, goods_category: category })
       .eq("id", p.id);
     setBusy(false);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     toast.success("Profile saved");
     qc.invalidateQueries({ queryKey: ["me"] });
   }

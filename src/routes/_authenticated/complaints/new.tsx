@@ -44,7 +44,7 @@ function NewComplaint() {
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const parsed = schema.safeParse(Object.fromEntries(new FormData(e.currentTarget).entries()));
-    if (!parsed.success) return toast.error(parsed.error.issues[0]?.message);
+    if (!parsed.success) { toast.error(parsed.error.issues[0]?.message); return; }
     setBusy(true);
     const { data: u } = await supabase.auth.getUser();
     const { data, error } = await supabase
@@ -53,7 +53,7 @@ function NewComplaint() {
       .select("id, reference_no")
       .single();
     setBusy(false);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     toast.success(`Complaint ${data.reference_no} submitted`);
     await qc.invalidateQueries({ queryKey: ["complaints"] });
     navigate({ to: "/complaints/$id", params: { id: data.id } });

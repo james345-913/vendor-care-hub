@@ -51,9 +51,9 @@ function AnnouncementsPage() {
   async function onCreate(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const parsed = schema.safeParse(Object.fromEntries(new FormData(e.currentTarget).entries()));
-    if (!parsed.success) return toast.error(parsed.error.issues[0]?.message);
+    if (!parsed.success) { toast.error(parsed.error.issues[0]?.message); return; }
     const { meeting_at, ...rest } = parsed.data;
-    if (kind === "meeting" && !meeting_at) return toast.error("Pick the meeting date and time");
+    if (kind === "meeting" && !meeting_at) { toast.error("Pick the meeting date and time"); return; }
     setBusy(true);
     const { error } = await supabase.from("announcements").insert({
       ...rest,
@@ -62,7 +62,7 @@ function AnnouncementsPage() {
       created_by: me.user.id,
     });
     setBusy(false);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     toast.success(kind === "meeting" ? "Meeting scheduled" : "Notice posted");
     setOpen(false);
     qc.invalidateQueries({ queryKey: ["announcements"] });
@@ -71,7 +71,7 @@ function AnnouncementsPage() {
   async function onDelete(id: string) {
     if (!confirm("Delete this post?")) return;
     const { error } = await supabase.from("announcements").delete().eq("id", id);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     qc.invalidateQueries({ queryKey: ["announcements"] });
   }
 
