@@ -22,9 +22,9 @@ import heroImg from "@/assets/market-hero.jpg";
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Sign in or register — Soko Umoja" },
+      { title: "Sign in or register — Market Guard" },
       { name: "description", content: "Sign in or register as a member of the vendors association." },
-      { property: "og:title", content: "Sign in or register — Soko Umoja" },
+      { property: "og:title", content: "Sign in or register — Market Guard" },
       { property: "og:description", content: "Access your vendor membership, complaints and meetings." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -133,7 +133,7 @@ function AuthPage() {
         <div className="absolute inset-0 bg-hero-overlay" />
         <div className="absolute bottom-0 p-12 text-primary-foreground">
           <Link to="/" className="font-display text-2xl font-bold">
-            Soko Umoja
+            Market Guard
           </Link>
           <p className="mt-3 max-w-sm text-primary-foreground/85">
             Your association, your rights. Register once and raise issues any time.
@@ -144,7 +144,7 @@ function AuthPage() {
       <main className="flex items-center justify-center px-5 py-12">
         <div className="w-full max-w-md">
           <Link to="/" className="mb-8 block font-display text-xl font-bold text-primary lg:hidden">
-            Soko Umoja
+            Market Guard
           </Link>
 
           {sentTo ? (
