@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent, type InputHTMLAttributes } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
 import "@lovable.dev/cloud-auth-js/styles.css";
@@ -268,7 +268,7 @@ function Field({
   label,
   name,
   ...props
-}: { label: string; name: string } & React.InputHTMLAttributes<HTMLInputElement>) {
+}: { label: string; name: string } & InputHTMLAttributes<HTMLInputElement>) {
   return (
     <div className="space-y-1.5">
       <Label htmlFor={name}>{label}</Label>
