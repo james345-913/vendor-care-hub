@@ -5,7 +5,7 @@ import { MEMBERSHIP_LABELS } from "@/lib/labels";
 export function MembershipCard({ profile }: { profile: Tables<"profiles"> }) {
   return (
     <div className="relative overflow-hidden rounded-2xl bg-primary-deep bg-weave p-6 text-primary-foreground shadow-lift">
-      <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gradient-warm opacity-80" />
+      <div className="absolute -bottom-16 -right-12 h-44 w-44 rounded-full bg-gradient-warm opacity-80" />
       <div className="relative">
         <div className="flex items-start justify-between">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-ochre">Member card</p>
