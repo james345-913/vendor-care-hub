@@ -14,6 +14,16 @@ const badgeVariants = cva(
         destructive:
           "border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80",
         outline: "text-foreground",
+        open: "border-transparent bg-ochre/30 text-ochre-foreground",
+        in_review: "border-transparent bg-info/15 text-info",
+        resolved: "border-transparent bg-success/15 text-success",
+        closed: "border-transparent bg-muted text-muted-foreground",
+        pending: "border-transparent bg-ochre/30 text-ochre-foreground",
+        active: "border-transparent bg-success/15 text-success",
+        suspended: "border-transparent bg-destructive/15 text-destructive",
+        high: "border-transparent bg-accent/15 text-accent",
+        meeting: "border-transparent bg-primary/12 text-primary",
+        notice: "border-transparent bg-accent/12 text-accent",
       },
     },
     defaultVariants: {
