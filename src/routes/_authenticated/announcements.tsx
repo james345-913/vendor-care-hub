@@ -24,7 +24,7 @@ import {
 } from "@/components/ui/dialog";
 
 export const Route = createFileRoute("/_authenticated/announcements")({
-  head: () => ({ meta: [{ title: "Notices & meetings — Soko Umoja" }] }),
+  head: () => ({ meta: [{ title: "Notices & meetings — Market Guard" }] }),
   loader: ({ context }) =>
     Promise.all([
       context.queryClient.ensureQueryData(memberQueryOptions),

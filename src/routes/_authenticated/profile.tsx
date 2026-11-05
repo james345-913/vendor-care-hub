@@ -20,7 +20,7 @@ import {
 import { GOODS_CATEGORIES } from "@/lib/labels";
 
 export const Route = createFileRoute("/_authenticated/profile")({
-  head: () => ({ meta: [{ title: "My profile — Soko Umoja" }] }),
+  head: () => ({ meta: [{ title: "My profile — Market Guard" }] }),
   loader: ({ context }) => context.queryClient.ensureQueryData(memberQueryOptions),
   component: ProfilePage,
 });

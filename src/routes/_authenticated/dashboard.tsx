@@ -10,7 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { STATUS_LABELS, type ComplaintStatus } from "@/lib/labels";
 
 export const Route = createFileRoute("/_authenticated/dashboard")({
-  head: () => ({ meta: [{ title: "Dashboard — Soko Umoja" }] }),
+  head: () => ({ meta: [{ title: "Dashboard — Market Guard" }] }),
   loader: ({ context }) =>
     Promise.all([
       context.queryClient.ensureQueryData(memberQueryOptions),
