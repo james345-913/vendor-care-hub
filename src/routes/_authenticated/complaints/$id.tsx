@@ -20,7 +20,7 @@ import {
 import { CATEGORY_LABELS, PRIORITY_LABELS, STATUS_LABELS, type ComplaintStatus } from "@/lib/labels";
 
 export const Route = createFileRoute("/_authenticated/complaints/$id")({
-  head: () => ({ meta: [{ title: "Complaint — Soko Umoja" }] }),
+  head: () => ({ meta: [{ title: "Complaint — Market Guard" }] }),
   loader: async ({ context, params }) => {
     await context.queryClient.ensureQueryData(memberQueryOptions);
     const d = await context.queryClient.ensureQueryData(complaintQueryOptions(params.id));

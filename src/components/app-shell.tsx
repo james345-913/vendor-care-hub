@@ -43,7 +43,7 @@ export function AppShell() {
           <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-warm font-display text-lg font-extrabold text-accent-foreground">
             SU
           </span>
-          <span className="font-display text-lg font-bold text-sidebar-foreground">Soko Umoja</span>
+          <span className="font-display text-lg font-bold text-sidebar-foreground">Market Guard</span>
         </Link>
         <nav className="flex flex-1 flex-col gap-1">
           {baseNav.map((n) => (
@@ -76,7 +76,7 @@ export function AppShell() {
       {/* Mobile top bar */}
       <header className="sticky top-0 z-20 flex items-center justify-between border-b bg-background/90 px-4 py-3 backdrop-blur lg:hidden">
         <Link to="/dashboard" className="font-display text-lg font-bold text-primary">
-          Soko Umoja
+          Market Guard
         </Link>
         <button onClick={signOut} className="flex items-center gap-1 text-sm text-muted-foreground">
           <LogOut className="h-4 w-4" /> Sign out

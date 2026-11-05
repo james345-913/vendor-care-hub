@@ -24,7 +24,7 @@ import {
 } from "@/lib/labels";
 
 export const Route = createFileRoute("/_authenticated/complaints/new")({
-  head: () => ({ meta: [{ title: "Report a problem — Soko Umoja" }] }),
+  head: () => ({ meta: [{ title: "Report a problem — Market Guard" }] }),
   component: NewComplaint,
 });
 

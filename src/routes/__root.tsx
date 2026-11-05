@@ -80,7 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Soko Umoja — Vendors Association" },
+      { title: "Market Guard — Vendors Association" },
       {
         name: "description",
         content: "Membership, complaints and meetings for market and street vendors.",

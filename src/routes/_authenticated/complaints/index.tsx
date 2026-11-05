@@ -13,7 +13,7 @@ import { CATEGORY_LABELS, STATUS_LABELS, type ComplaintStatus } from "@/lib/labe
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/_authenticated/complaints/")({
-  head: () => ({ meta: [{ title: "Complaints — Soko Umoja" }] }),
+  head: () => ({ meta: [{ title: "Complaints — Market Guard" }] }),
   loader: ({ context }) =>
     Promise.all([
       context.queryClient.ensureQueryData(memberQueryOptions),

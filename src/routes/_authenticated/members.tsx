@@ -15,7 +15,7 @@ import { MEMBERSHIP_LABELS, type MembershipStatus } from "@/lib/labels";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/_authenticated/members")({
-  head: () => ({ meta: [{ title: "Members register — Soko Umoja" }] }),
+  head: () => ({ meta: [{ title: "Members register — Market Guard" }] }),
   beforeLoad: async ({ context }) => {
     const me = await context.queryClient.ensureQueryData(memberQueryOptions);
     if (!me.isAdmin) throw redirect({ to: "/dashboard" });
