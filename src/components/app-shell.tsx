@@ -41,7 +41,7 @@ export function AppShell() {
       <aside className="hidden flex-col bg-sidebar bg-weave p-5 lg:sticky lg:top-0 lg:flex lg:h-screen">
         <Link to="/" className="mb-8 flex items-center gap-2 px-2">
           <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-warm font-display text-lg font-extrabold text-accent-foreground">
-            SU
+            MG
           </span>
           <span className="font-display text-lg font-bold text-sidebar-foreground">Market Guard</span>
         </Link>
