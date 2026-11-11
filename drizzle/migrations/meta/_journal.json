@@ -15,6 +15,13 @@
       "when": 1793870793168,
       "tag": "0001_reset_numbering",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1794379782964,
+      "tag": "0002_complaint_evidence_photos",
+      "breakpoints": true
     }
   ]
 }
