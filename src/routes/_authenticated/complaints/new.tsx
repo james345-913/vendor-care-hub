@@ -169,7 +169,6 @@ function NewComplaint() {
             type="file"
             accept={EVIDENCE_ACCEPT}
             multiple
-            capture="environment"
             className="hidden"
             onChange={onPickPhotos}
             aria-label="Add photos"
