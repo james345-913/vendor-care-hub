@@ -17,6 +17,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { EvidenceGallery } from "@/components/evidence-gallery";
 import { CATEGORY_LABELS, PRIORITY_LABELS, STATUS_LABELS, type ComplaintStatus } from "@/lib/labels";
 
 export const Route = createFileRoute("/_authenticated/complaints/$id")({
@@ -89,6 +90,8 @@ function ComplaintDetail() {
           </p>
         )}
         <p className="mt-5 whitespace-pre-wrap leading-relaxed">{c.description}</p>
+
+        {c.evidence_paths.length > 0 && <EvidenceGallery paths={c.evidence_paths} />}
 
         {me.isAdmin && c.vendor && (
           <div className="mt-6 rounded-xl bg-muted p-4 text-sm">

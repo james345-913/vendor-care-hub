@@ -102,6 +102,7 @@ export type Database = {
           category: Database["public"]["Enums"]["complaint_category"]
           created_at: string
           description: string
+          evidence_paths: string[]
           id: string
           location: string
           priority: Database["public"]["Enums"]["complaint_priority"]
@@ -115,6 +116,7 @@ export type Database = {
           category?: Database["public"]["Enums"]["complaint_category"]
           created_at?: string
           description: string
+          evidence_paths?: string[]
           id?: string
           location?: string
           priority?: Database["public"]["Enums"]["complaint_priority"]
@@ -128,6 +130,7 @@ export type Database = {
           category?: Database["public"]["Enums"]["complaint_category"]
           created_at?: string
           description?: string
+          evidence_paths?: string[]
           id?: string
           location?: string
           priority?: Database["public"]["Enums"]["complaint_priority"]
