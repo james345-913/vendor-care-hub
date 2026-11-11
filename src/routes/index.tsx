@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { BadgeCheck, Megaphone, MessageSquareWarning, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
-import heroImg from "@/assets/market-hero.jpg";
+import heroAsset from "@/assets/mbarara-central-market.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -60,11 +60,12 @@ function Landing() {
     <div className="min-h-screen bg-background">
       <section className="relative isolate min-h-[88vh] overflow-hidden">
         <img
-          src={heroImg}
-          alt="Vendors trading at a busy Nairobi market at sunset"
+          src={heroAsset.url}
+          alt="Vendors and fresh produce stalls inside Mbarara Central Market in Uganda"
           width={1600}
-          height={1104}
-          className="absolute inset-0 -z-20 h-full w-full object-cover"
+          height={702}
+          fetchPriority="high"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-[42%_center] md:object-center"
         />
         <div className="absolute inset-0 -z-10 bg-hero-overlay" />
 
