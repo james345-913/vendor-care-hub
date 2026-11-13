@@ -1,3 +1,3 @@
 - [x] Replace Kenyan website imagery with the existing authentic Mbarara Central Market photograph.
 - [x] Replace Kiswahili wording and Kenyan location examples with English and Mbarara examples.
-- [ ] Verify the updated pages and picture display.
+- [x] Verify the updated pages and picture display.
