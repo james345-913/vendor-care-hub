@@ -111,7 +111,7 @@ function NewComplaint() {
       <form onSubmit={onSubmit} className="space-y-5 rounded-2xl border bg-card p-6 shadow-soft">
         <div className="space-y-1.5">
           <Label htmlFor="title">Title</Label>
-          <Input id="title" name="title" placeholder="e.g. County askaris confiscated my goods" required />
+          <Input id="title" name="title" placeholder="e.g. My goods were confiscated at Mbarara Central Market" required />
         </div>
         <div className="grid gap-5 sm:grid-cols-2">
           <div className="space-y-1.5">
