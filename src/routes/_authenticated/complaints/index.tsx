@@ -13,7 +13,14 @@ import { CATEGORY_LABELS, STATUS_LABELS, type ComplaintStatus } from "@/lib/labe
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/_authenticated/complaints/")({
-  head: () => ({ meta: [{ title: "Complaints — Market Guard" }] }),
+  head: () => ({ meta: [
+    { title: "Complaints — Market Guard" },
+    { name: "description", content: "Follow vendor complaints and association responses in Mbarara, Uganda." },
+    { property: "og:title", content: "Complaints — Market Guard" },
+    { property: "og:description", content: "Follow vendor complaints and association responses in Mbarara, Uganda." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary" },
+  ] }),
   loader: ({ context }) =>
     Promise.all([
       context.queryClient.ensureQueryData(memberQueryOptions),

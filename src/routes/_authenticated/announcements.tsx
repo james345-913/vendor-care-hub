@@ -24,7 +24,14 @@ import {
 } from "@/components/ui/dialog";
 
 export const Route = createFileRoute("/_authenticated/announcements")({
-  head: () => ({ meta: [{ title: "Notices & meetings — Market Guard" }] }),
+  head: () => ({ meta: [
+    { title: "Notices & meetings — Market Guard" },
+    { name: "description", content: "Read Market Guard association notices and meetings for Mbarara vendors." },
+    { property: "og:title", content: "Notices & meetings — Market Guard" },
+    { property: "og:description", content: "Read Market Guard association notices and meetings for Mbarara vendors." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary" },
+  ] }),
   loader: ({ context }) =>
     Promise.all([
       context.queryClient.ensureQueryData(memberQueryOptions),

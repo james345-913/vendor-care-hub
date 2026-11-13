@@ -21,7 +21,14 @@ import { EvidenceGallery } from "@/components/evidence-gallery";
 import { CATEGORY_LABELS, PRIORITY_LABELS, STATUS_LABELS, type ComplaintStatus } from "@/lib/labels";
 
 export const Route = createFileRoute("/_authenticated/complaints/$id")({
-  head: () => ({ meta: [{ title: "Complaint — Market Guard" }] }),
+  head: () => ({ meta: [
+    { title: "Complaint — Market Guard" },
+    { name: "description", content: "View a Market Guard complaint, its evidence and progress updates." },
+    { property: "og:title", content: "Complaint — Market Guard" },
+    { property: "og:description", content: "View a Market Guard complaint, its evidence and progress updates." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary" },
+  ] }),
   loader: async ({ context, params }) => {
     await context.queryClient.ensureQueryData(memberQueryOptions);
     const d = await context.queryClient.ensureQueryData(complaintQueryOptions(params.id));

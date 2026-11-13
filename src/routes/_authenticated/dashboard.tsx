@@ -10,7 +10,14 @@ import { Badge } from "@/components/ui/badge";
 import { STATUS_LABELS, type ComplaintStatus } from "@/lib/labels";
 
 export const Route = createFileRoute("/_authenticated/dashboard")({
-  head: () => ({ meta: [{ title: "Dashboard — Market Guard" }] }),
+  head: () => ({ meta: [
+    { title: "Dashboard — Market Guard" },
+    { name: "description", content: "View your Market Guard membership, complaints and meetings in Mbarara, Uganda." },
+    { property: "og:title", content: "Dashboard — Market Guard" },
+    { property: "og:description", content: "View your Market Guard membership, complaints and meetings in Mbarara, Uganda." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary" },
+  ] }),
   loader: ({ context }) =>
     Promise.all([
       context.queryClient.ensureQueryData(memberQueryOptions),

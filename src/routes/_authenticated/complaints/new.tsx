@@ -32,7 +32,14 @@ import {
 } from "@/lib/evidence";
 
 export const Route = createFileRoute("/_authenticated/complaints/new")({
-  head: () => ({ meta: [{ title: "Report a problem — Market Guard" }] }),
+  head: () => ({ meta: [
+    { title: "Report a problem — Market Guard" },
+    { name: "description", content: "Report a vendor problem in Mbarara, Uganda, with optional photo evidence." },
+    { property: "og:title", content: "Report a problem — Market Guard" },
+    { property: "og:description", content: "Report a vendor problem in Mbarara, Uganda, with optional photo evidence." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary" },
+  ] }),
   component: NewComplaint,
 });
 
