@@ -20,7 +20,14 @@ import {
 import { GOODS_CATEGORIES } from "@/lib/labels";
 
 export const Route = createFileRoute("/_authenticated/profile")({
-  head: () => ({ meta: [{ title: "My profile — Market Guard" }] }),
+  head: () => ({ meta: [
+    { title: "My profile — Market Guard" },
+    { name: "description", content: "Manage your Market Guard vendor profile and membership details in Mbarara, Uganda." },
+    { property: "og:title", content: "My profile — Market Guard" },
+    { property: "og:description", content: "Manage your Market Guard vendor profile and membership details in Mbarara, Uganda." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary" },
+  ] }),
   loader: ({ context }) => context.queryClient.ensureQueryData(memberQueryOptions),
   component: ProfilePage,
 });

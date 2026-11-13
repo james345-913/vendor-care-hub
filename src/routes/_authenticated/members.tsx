@@ -15,7 +15,14 @@ import { MEMBERSHIP_LABELS, type MembershipStatus } from "@/lib/labels";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/_authenticated/members")({
-  head: () => ({ meta: [{ title: "Members register — Market Guard" }] }),
+  head: () => ({ meta: [
+    { title: "Members register — Market Guard" },
+    { name: "description", content: "Review vendor memberships for the Market Guard association in Mbarara, Uganda." },
+    { property: "og:title", content: "Members register — Market Guard" },
+    { property: "og:description", content: "Review vendor memberships for the Market Guard association in Mbarara, Uganda." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary" },
+  ] }),
   beforeLoad: async ({ context }) => {
     const me = await context.queryClient.ensureQueryData(memberQueryOptions);
     if (!me.isAdmin) throw redirect({ to: "/dashboard" });

@@ -17,7 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { GOODS_CATEGORIES } from "@/lib/labels";
-import heroImg from "@/assets/market-hero.jpg";
+import heroAsset from "@/assets/mbarara-central-market.jpg.asset.json";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
@@ -124,11 +124,11 @@ function AuthPage() {
     <div className="grid min-h-screen lg:grid-cols-[1fr_1.1fr]">
       <aside className="relative hidden overflow-hidden lg:block">
         <img
-          src={heroImg}
-          alt="Vendors at a Nairobi market"
+          src={heroAsset.url}
+          alt="Vendors and stalls inside Mbarara Central Market, Uganda"
           className="absolute inset-0 h-full w-full object-cover"
           width={1600}
-          height={1104}
+          height={702}
         />
         <div className="absolute inset-0 bg-hero-overlay" />
         <div className="absolute bottom-0 p-12 text-primary-foreground">
@@ -230,7 +230,7 @@ function AuthPage() {
                     <Field
                       label="Market / street"
                       name="market_location"
-                      placeholder="e.g. Gikomba, Muthurwa"
+                      placeholder="e.g. Mbarara Central Market, Uganda"
                       required
                     />
                     <Field label="Stall no." name="stall_number" />

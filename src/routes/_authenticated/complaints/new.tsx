@@ -32,7 +32,14 @@ import {
 } from "@/lib/evidence";
 
 export const Route = createFileRoute("/_authenticated/complaints/new")({
-  head: () => ({ meta: [{ title: "Report a problem — Market Guard" }] }),
+  head: () => ({ meta: [
+    { title: "Report a problem — Market Guard" },
+    { name: "description", content: "Report a vendor problem in Mbarara, Uganda, with optional photo evidence." },
+    { property: "og:title", content: "Report a problem — Market Guard" },
+    { property: "og:description", content: "Report a vendor problem in Mbarara, Uganda, with optional photo evidence." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary" },
+  ] }),
   component: NewComplaint,
 });
 
@@ -111,7 +118,7 @@ function NewComplaint() {
       <form onSubmit={onSubmit} className="space-y-5 rounded-2xl border bg-card p-6 shadow-soft">
         <div className="space-y-1.5">
           <Label htmlFor="title">Title</Label>
-          <Input id="title" name="title" placeholder="e.g. County askaris confiscated my goods" required />
+          <Input id="title" name="title" placeholder="e.g. My goods were confiscated at Mbarara Central Market" required />
         </div>
         <div className="grid gap-5 sm:grid-cols-2">
           <div className="space-y-1.5">
